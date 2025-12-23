@@ -1,0 +1,8 @@
+../Src/main.c:45:5:main	16	static
+../Src/main.c:70:6:clock_gating_GPIO	4	static
+../Src/main.c:81:6:vLD1_GPIOB_config	4	static
+../Src/main.c:92:6:vLD2_GPIOE_config	4	static
+../Src/main.c:103:6:vLD3_GPIOB_config	4	static
+../Src/main.c:114:6:vPerform_LD_pattern_on	16	static
+../Src/main.c:132:6:vPeform_LD_pattern_off	4	static
+../Src/main.c:144:6:vdelay	24	static
