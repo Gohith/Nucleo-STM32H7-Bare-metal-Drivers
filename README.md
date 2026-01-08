@@ -1,3 +1,89 @@
-# Nucleo-STM32H7-Bare-metal-Drivers
+# STM32H755ZI Bare‑Metal Drivers
 
-The repository have the peripheral drivers of STM32H755ZIT6 MCU. A dual core CM7 and CM4 32 bit MCU. Need linker file, startup file in addition to use the drivers.
+A lightweight collection of **bare‑metal, register‑level drivers** for STM32H7 Nucleo boards or MCU using STM32H755ZIT6.  
+This project avoids HAL/LL entirely and focuses on clarity, performance, and learning the hardware at its lowest level.
+
+> **Project Status:** Work in progress — currently includes GPIO and SysTick drivers.  
+> More peripheral drivers will be added as development continues.
+
+---
+
+## Overview
+
+This repository contains minimal, clean, and well‑structured drivers written using fully bare-metal and direct register access.  
+The goal is to build a complete set of reusable STM32H7 drivers while keeping the code transparent and easy to understand.
+
+---
+
+## Implemented Drivers
+
+### **GPIO**
+- Configure pins as input, output, alternate function, or analog  
+- Push‑pull / open‑drain modes  
+- Pull‑up / pull‑down configuration  
+- Fast read/write/toggle operations  
+- Pure register‑level implementation
+
+### **SysTick**
+- System tick timer initialization  
+- Millisecond delay functionality  
+- Core clock‑based timing  
+- Useful for simple scheduling and delay
+
+---
+
+## Project Structure
+```
+Drivers/
+│
+├── src/
+│   ├── gpio.c
+│   ├── systick.c
+│   
+│
+├── inc/
+│   ├── gpio.h
+│   ├── systick.h
+│
+└── README.md
+```
+
+---
+
+## Development Setup
+
+- **Board:** Nucleo‑H755ZI-Q (or similar STM32H7 Nucleo boards)  
+- **Toolchain:** STM32CubeIDE / arm‑none‑eabi‑gcc  
+- **Dependencies:** MCU startup file, linker files 
+- **Debugger:** ST‑Link / OpenOCD  
+
+---
+
+## Work in Progress
+
+Planned upcoming drivers:
+
+- RCC  
+- UART  
+- TIM (PWM + basic timer)  
+- SPI  
+- I2C  
+- DMA  
+- Interrupt‑driven peripherals  
+- Dual‑core CM7/CM4 examples  
+
+Development will continue as new modules are implemented and tested.
+
+---
+
+## Contributions
+
+Contributions, suggestions, and improvements are welcome.  
+Feel free to open issues or submit pull requests.
+
+---
+
+## License
+
+MIT License — free for personal and commercial use.
+
