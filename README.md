@@ -19,7 +19,7 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 
 ### **GPIO**
 - Configure pins as input, output, alternate function, or analog  
-- Push‑pull / open‑drain modes (> **underdevelopment**)
+- Push‑pull / open‑drain modes (underdevelopment)
 - Pull‑up / pull‑down configuration  
 - Read/Write operations  
 
