@@ -19,16 +19,18 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 
 ### **GPIO**
 - Configure pins as input, output, alternate function, or analog  
-- Push‑pull / open‑drain modes  
+- Push‑pull / open‑drain modes (> **underdevelopment**)
 - Pull‑up / pull‑down configuration  
-- Fast read/write/toggle operations  
-- Pure register‑level implementation
+- Read/Write operations  
 
 ### **SysTick**
 - System tick timer initialization  
 - Millisecond delay functionality  
 - Core clock‑based timing  
-- Useful for simple scheduling and delay
+- Useful for simple scheduling and delay (When using RTOS, use delay logic from TIM. Since the default RTOS is heavily depend on ticks from cortex-M default counter)
+
+### **RCC**
+- Enabling/Disabling the CLK for GPIO BUS, TIM peripheral
 
 ---
 
@@ -37,14 +39,15 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 Drivers/
 │
 ├── src/
-│   ├── gpio.c
+│   ├── GPIO.c
 │   ├── systick.c
-│   
+│   ├── RCC.c
 │
 ├── inc/
-│   ├── gpio.h
+│   ├── GPIO.h
 │   ├── systick.h
-│
+│   ├── RCC.h
+|
 └── README.md
 ```
 
@@ -62,8 +65,7 @@ Drivers/
 ## Work in Progress
 
 Planned upcoming drivers:
-
-- RCC  
+  
 - UART  
 - TIM (PWM + basic timer)  
 - SPI  
