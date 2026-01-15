@@ -2,6 +2,7 @@
 
 A lightweight collection of **bare‑metal, register‑level drivers** for STM32H7 Nucleo boards or MCU using STM32H755ZIT6.  
 This project avoids HAL/LL entirely and focuses on clarity, performance, and learning the hardware at its lowest level.
+The drivers can be included in the project application.
 
 > **Project Status:** Work in progress — currently includes GPIO and SysTick drivers.  
 > More peripheral drivers will be added as development continues.
