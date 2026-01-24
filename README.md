@@ -4,7 +4,7 @@ A lightweight collection of **bare‑metal, register‑level drivers** for STM32
 This project avoids HAL/LL entirely and focuses on clarity, performance, and learning the hardware at its lowest level.
 The drivers can be included in the project application.
 
-> **Project Status:** Work in progress — currently includes GPIO and SysTick drivers.  
+> **Project Status:** Work in progress — currently includes GPIO, SysTick, TIM, RCC, USART drivers.  
 > More peripheral drivers will be added as development continues.
 
 ---
