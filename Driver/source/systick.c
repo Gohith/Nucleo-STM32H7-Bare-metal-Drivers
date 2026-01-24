@@ -20,13 +20,13 @@ volatile systick_register_t *SYST = (volatile systick_register_t*)0xE000E010U;
 #define CPU_HZ	(64000000U)		//!> 64MHz (change this as per Clock frequency)
 #define to_ms	(1000U)			//!> 1 second
 /****************** GLOBAL VARIABLES ******************/
-static volatile uint32_t systick_ticks = 0;
+static volatile uint32_t systick_ticks = 0U;
 
-/****************** LOCAL FUNCTIONS PROTOTYPE *******************/
+/****************** USER FUNCTIONS PROTOTYPE *******************/
 static void systick_counter_init(uint32_t);
 static uint32_t systick_get_ticks(void);
 
-/****************** GLOBAL FUNCTIONS ******************/
+/****************** GLOBAL FUNCTIONS DEFINITIONS	******************/
 /**
  * @brief function to delay using the tick count
  * @param delay
@@ -40,7 +40,7 @@ void systick_delay(uint32_t delay){
 	}
 	SYST->CSR = CTRL_DISABLE;
 }
-/****************** LOCAL FUNCTIONS *******************/
+/****************** USER FUNCTION DEFINITIONS *******************/
 /**
  * @brief function to initialize the systick counter
  * @param value reload value to the counter
