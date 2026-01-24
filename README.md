@@ -20,7 +20,7 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 
 ### **GPIO**
 - Configure pins as input, output, alternate function, or analog  
-- Push‑pull / open‑drain modes (underdevelopment)
+- Push‑pull / open‑drain modes 
 - Pull‑up / pull‑down configuration  
 - Read/Write operations  
 
@@ -31,8 +31,11 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 - Useful for simple scheduling and delay (When using RTOS, use delay logic from TIM. Since the default RTOS is heavily depend on ticks from cortex-M default counter)
 
 ### **RCC**
-- Enabling/Disabling the CLK for GPIO BUS, TIM peripheral
+- Enabling/Disabling the CLK for GPIO, TIM, USART/UART, 
 
+### **USART/UART**
+- Configuration of USART/UART
+- USART Write/Block write
 ---
 
 ## Project Structure
@@ -43,11 +46,15 @@ Drivers/
 │   ├── GPIO.c
 │   ├── systick.c
 │   ├── RCC.c
+|   ├── USART.c
+|   ├── TIM.c
 │
 ├── inc/
 │   ├── GPIO.h
 │   ├── systick.h
 │   ├── RCC.h
+|   ├── USART.h
+|   ├── TIM.h
 |
 └── README.md
 ```
@@ -59,21 +66,19 @@ Drivers/
 - **Board:** Nucleo‑H755ZI-Q (or similar STM32H7 Nucleo boards)  
 - **Toolchain:** STM32CubeIDE / arm‑none‑eabi‑gcc  
 - **Dependencies:** MCU startup file, linker files 
-- **Debugger:** ST‑Link / OpenOCD  
+- **Debugger:** ST‑Link   
 
 ---
 
 ## Work in Progress
 
 Planned upcoming drivers:
-  
-- UART  
-- TIM (PWM + basic timer)  
 - SPI  
-- I2C  
+- I2C
+- CAN/CANFD
 - DMA  
 - Interrupt‑driven peripherals  
-- Dual‑core CM7/CM4 examples  
+- Dual‑core CM7/CM4   
 
 Development will continue as new modules are implemented and tested.
 
