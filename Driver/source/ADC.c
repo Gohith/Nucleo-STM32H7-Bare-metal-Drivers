@@ -60,7 +60,7 @@ void ADC_Start(ADC_config_t* handle){
  * @param	handle	handle to ADC_config_t
  * @return 	uint16_t type data
  */
-uint16_t ADC_READ(ADC_config_t* handle){
+uint16_t ADC_Read(ADC_config_t* handle){
 	while(!(handle->instance->ISR & (1U << 2))){
 		// WAIT TILL EOC
 	}
@@ -114,3 +114,6 @@ void ADC_Config_Channel(ADC_config_t* handle){
 
 	}
 }
+
+
+

@@ -69,6 +69,6 @@ typedef enum{
 
 void ADC_init(ADC_config_t*);
 void ADC_Start(ADC_config_t*);
-uint16_t ADC_Read_Block(ADC_config_t*);
+uint16_t ADC_Read(ADC_config_t*);
 
 #endif /* ADC_H_ */
