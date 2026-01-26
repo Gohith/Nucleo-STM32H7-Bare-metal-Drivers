@@ -38,7 +38,7 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 - USART Write/Block write
 
 ### **ADC**
--  ADC init/Read
+-  ADC init/Configure/Start/Read
 -  Multiple channel ADC configuration (16 channels can be configured)
   
 ---
