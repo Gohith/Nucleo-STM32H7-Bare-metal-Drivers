@@ -104,12 +104,12 @@ void ADC_Config_Channel(ADC_config_t* handle){
 
 		// CONFIGURE SAMPLE TIME FOR CHANNEL
 		if(handle->channels[ui8temp] < SMPR1_LENGTH){
-			handle->instance->SMPR1 &= ~(0x7U << (ui8temp * 3U));
-			handle->instance->SMPR1 |= (handle->sample_times[ui8temp] << (ui8temp * 3U));
+			handle->instance->SMPR1 &= ~(0x7U << (handle->channels[ui8temp] * 3U));
+			handle->instance->SMPR1 |= (handle->sample_times[ui8temp] << (handle->channels[ui8temp] * 3U));
 		}
 		else{
-			handle->instance->SMPR2 &= ~(0x7U << (ui8temp * 3U));
-			handle->instance->SMPR2 |= (handle->sample_times[ui8temp] << (ui8temp * 3U));
+			handle->instance->SMPR2 &= ~(0x7U << (handle->channels[ui8temp] * 3U));
+			handle->instance->SMPR2 |= (handle->sample_times[ui8temp] << (handle->channels[ui8temp] * 3U));
 		}
 
 	}
