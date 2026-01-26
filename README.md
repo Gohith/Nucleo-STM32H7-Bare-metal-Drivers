@@ -36,6 +36,11 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 ### **USART/UART**
 - Configuration of USART/UART
 - USART Write/Block write
+
+### **ADC**
+-  ADC init/Read
+-  Multiple channel ADC configuration (16 channels can be configured)
+  
 ---
 
 ## Project Structure
@@ -48,6 +53,7 @@ Drivers/
 │   ├── RCC.c
 |   ├── USART.c
 |   ├── TIM.c
+|   ├── ADC.c
 │
 ├── inc/
 │   ├── GPIO.h
@@ -55,6 +61,7 @@ Drivers/
 │   ├── RCC.h
 |   ├── USART.h
 |   ├── TIM.h
+|   ├── ADC.h
 |
 └── README.md
 ```
