@@ -64,6 +64,7 @@ Drivers/
 |   ├── ADC.c
 |   ├── PWR.c
 |   ├── RTC.c
+|   ├── IWDG.c
 │
 ├── inc/
 │   ├── GPIO.h
@@ -73,7 +74,8 @@ Drivers/
 |   ├── TIM.h
 |   ├── ADC.h
 |   ├── PWR.h
-|   ├── RTC.c
+|   ├── RTC.h
+|   ├── IWDG.h
 |
 └── README.md
 ```
