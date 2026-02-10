@@ -4,7 +4,7 @@ A lightweight collection of **bare‑metal, register‑level drivers** for STM32
 This project avoids HAL/LL entirely and focuses on clarity, performance, and learning the hardware at its lowest level.
 The drivers can be included in the project application.
 
-> **Project Status:** Work in progress — currently includes ADC, GPIO, PWR, RCC, RTC, SYSTICK, TIM, USART, IWDG drivers.  
+> **Project Status:** Work in progress — currently includes ADC, GPIO, PWR, RCC, RTC, SYSTICK, TIM, USART, IWDG, NVIC drivers.  
 > More peripheral drivers will be added as development continues.
 
 ---
@@ -53,6 +53,10 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 - Independent Watch Dog Tiner Init/Refresh
 - on latest STM32H7 models CSI(Clock Security Internal) is used instead of LSI. Though manual need to be synced.
 > **CSI is used instead of LSI on STM32H755ZI model. Using IWDG cannot be terminated like WWDG(windowed watchdog) since it uses independent clock source, user should be cautious. Use IWDG for Production, WWDG for Design and Development**
+
+### **NVIC**
+- Set/Clear/Read Internal Interrupts
+> **Interrupts priority is for future scope**
   
 ---
 
@@ -70,6 +74,7 @@ Drivers/
 |   ├── PWR.c
 |   ├── RTC.c
 |   ├── IWDG.c
+|   ├── NVIC.c
 │
 ├── inc/
 │   ├── GPIO.h
@@ -81,6 +86,7 @@ Drivers/
 |   ├── PWR.h
 |   ├── RTC.h
 |   ├── IWDG.h
+|   ├── NVIC.h
 |
 └── README.md
 ```
@@ -102,8 +108,8 @@ Planned upcoming drivers:
 - SPI  
 - I2C
 - CAN/CANFD
-- DMA  
-- Interrupt‑driven peripherals  
+- DMA    
+- Extended Interrupts (EXTI)
 - Dual‑core CM7/CM4   
 
 Development will continue as new modules are implemented and tested.
