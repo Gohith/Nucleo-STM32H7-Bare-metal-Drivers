@@ -72,6 +72,13 @@ typedef enum{
 	OPEN_DRAIN
 }eGPIOx_OPType_t;
 
+typedef enum{
+	NO_PULLUP_PULLDOWN,
+	PULL_UP,
+	PULL_DOWN,
+	RESERVED
+}eGPIOx_PUPD;
+
 /************************** GLOBAL FUNCTIONS **********************/
 
 void GPIO_init(GPIO_Config_t *handle, eGPIO_Mode_t);
