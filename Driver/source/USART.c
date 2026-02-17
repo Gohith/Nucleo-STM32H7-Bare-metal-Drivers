@@ -6,12 +6,13 @@
  */
 
 #include<USART.h>
+#include<stddef.h>
 
 
 /********************	MACROS	******************************/
 
-#define USART_TX_COMPLETE_Bit			(1U << 6)
-#define USART_TX_FIFO_NOT_FULL_Bit		(1U << 7)
+#define USART_TX_FIFO_NOT_FULL_BIT		(1U << 7)
+#define USART_RX_FIFO_NOT_EMPTY_BIT		(1U << 5)
 
 /*********************	GLOBAL FUNCTIONS DEFINITION	********************/
 
@@ -49,8 +50,8 @@ void USART_init(usart_config_t *usart_config){
  * @return 	NONE
  */
 void USART_Write(usart_config_t *usart_config, uint8_t ui8data){
-	while(!(usart_config->instance->ISR & USART_TX_FIFO_NOT_FULL_Bit)){
-
+	while(!(usart_config->instance->ISR & USART_TX_FIFO_NOT_FULL_BIT)){
+		// TX FIFO
 	}
 	usart_config->instance->TDR = ui8data;
 }
@@ -64,9 +65,38 @@ void USART_Write(usart_config_t *usart_config, uint8_t ui8data){
  */
 void USART_Write_Block(usart_config_t *usart_config, const uint8_t *pui8data, uint8_t ui8length){
 	for(uint8_t ui8size = 0; ui8size < ui8length; ui8size++){
-		while(!(usart_config->instance->ISR & USART_TX_FIFO_NOT_FULL_Bit)){
+		while(!(usart_config->instance->ISR & USART_TX_FIFO_NOT_FULL_BIT)){
 
 		}
 		usart_config->instance->TDR = pui8data[ui8size];
 	}
+}
+
+/**
+ * @brief	Function to read one byte
+ * @param	usart_config_t	USART Config pointer
+ * @return	uint8_t 	one byte of data
+ */
+uint8_t USART_Read(usart_config_t *usart_config){
+	while(!(usart_config->instance->ISR & USART_RX_FIFO_NOT_EMPTY_BIT)){
+			// Data Not Received
+		}
+	uint8_t ui8data = usart_config->instance->RDR;
+	return ui8data;
+}
+
+/**
+ * @brief	Function to read block of data
+ * @param	usart_config_t	USART Config pointer
+ * @return	uint8_t* 		Block of data
+ */
+uint8_t* USART_Read_Block(usart_config_t *usart_config, uint8_t length){
+	uint8_t *pui8data = NULL;
+	while(!(usart_config->instance->ISR & USART_RX_FIFO_NOT_EMPTY_BIT)){
+			// Data Not Received
+		}
+	for(uint8_t ui8size = 0; ui8size < length; length++){
+		pui8data[ui8size] = usart_config->instance->RDR;
+	}
+	return pui8data;
 }

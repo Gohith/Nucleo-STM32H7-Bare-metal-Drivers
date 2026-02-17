@@ -12,6 +12,7 @@
 #include<stdbool.h>
 #include<GPIO.h>
 
+/*************************************	USART	REGISTER	*********************************/
 typedef struct{
 	volatile uint32_t CR1;		//!> 0x00, control register 1
 	volatile uint32_t CR2;		//!> 0x04, control register 2
@@ -27,6 +28,7 @@ typedef struct{
 	volatile uint32_t PRESC;	//!> 0x2C, prescaler register
 }usart_reg_t;
 
+/**********************************	USART CONFIG AND ENUMS	********************************/
 typedef struct{
 	usart_reg_t	*instance;		//!> USART/UART  peripheral
 	uint8_t Word_Length:2;		//!> Data length
@@ -51,7 +53,8 @@ typedef enum{
 	EVEN_PARITY = 0,
 	ODD_PARITY
 }eUSARTx_Parity_t;
-/******************* MACROS	******************/
+
+/******************* USART BASE ADDRESS	******************/
 
 #define USART1	((usart_reg_t*)0x40011000U)
 #define USART2	((usart_reg_t*)0x40004400U)
@@ -67,5 +70,8 @@ typedef enum{
 void USART_init(usart_config_t*);
 void USART_Write_Block(usart_config_t*, const uint8_t*, uint8_t);
 void USART_Write(usart_config_t*, uint8_t);
+
+uint8_t* USART_Read_Block(usart_config_t*, uint8_t);
+uint8_t USART_Read(usart_config_t*);
 
 #endif /* USART_H_ */

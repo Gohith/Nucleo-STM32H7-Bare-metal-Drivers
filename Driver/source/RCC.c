@@ -9,9 +9,6 @@
 #include <RCC.h>
 
 
-/**********************	GLOBAL VARIABLE	*********************/
-volatile RCC_reg_t *RCC = (volatile RCC_reg_t *)0x58024400U;
-
 /************* GLOBAL FUNCTIONS DEFINITIONS	******************/
 
 /**
@@ -166,5 +163,103 @@ void RCC_Disable_USARTx(eUSARTx_t USARTx){
 					break;
 	default:
 			break;
+	}
+}
+
+/**
+ * @brief	Function to Enable ADCx peripheraö
+ * @param	ADCx	ADC(1-3) peripheral
+ * @return 	NONE
+ */
+void RCC_Enable_ADCx(eADCx_t ADCx){
+	switch(ADCx){
+	case RCC_ADC1:	RCC->AHB1ENR |= (1U << 5);
+					break;
+	case RCC_ADC2:	RCC->AHB1ENR |= (1U << 5);
+					break;
+	case RCC_ADC3:	RCC->AHB4EN |= (1U << 24);
+					break;
+	default:
+				break;
+	}
+}
+
+/**
+ * @brief	Function to Disable ADCx peripheraö
+ * @param	ADCx	ADC(1-3) peripheral
+ * @return 	NONE
+ */
+void RCC_Disable_ADCx(eADCx_t ADCx){
+	switch(ADCx){
+		case RCC_ADC1:	RCC->AHB1ENR &= ~(1U << 5);
+						break;
+		case RCC_ADC2:	RCC->AHB1ENR &= ~(1U << 5);
+						break;
+		case RCC_ADC3:	RCC->AHB4EN &= ~(1U << 24);
+						break;
+		default:
+					break;
+	}
+}
+
+/**
+ * @brief	Function to enable RTC
+ * @param	NONE
+ * @return	NONE
+ */
+void RCC_Enable_RTC(void){
+	RCC->APB4ENR |= (1U << 16);
+}
+
+/**
+ * @brief	Function to disable RTC
+ * @param	NONE
+ * @return	NONE
+ */
+void RCC_Disable_RTC(void){
+	RCC->APB4ENR &= ~(1U << 16);
+}
+
+/**
+ * @brief	Function to Enable SPIx Peripheral
+ * @param	SPIx	SPI(1-6) peripheral
+ * @return	NONE
+ */
+void RCC_Enable_SPIx(eSPIx_t SPIx){
+	switch(SPIx){
+		case RCC_SPI1:	RCC->APB2ENR |= 1U << 12;
+						break;
+		case RCC_SPI2:	RCC->APB1LENR |= 1U << 14;
+						break;
+		case RCC_SPI3:	RCC->APB1LENR |= 1U << 15;
+						break;
+		case RCC_SPI4:	RCC->APB2ENR |= 1U << 13;
+						break;
+		case RCC_SPI5:	RCC->APB2ENR |= 1U << 20;
+						break;
+		case RCC_SPI6:	RCC->APB4ENR |= 1U << 5;
+						break;
+	}
+}
+
+/**
+ * @brief	Function to Disable SPIx Peripheral
+ * @param	SPIx	SPI(1-6) peripheral
+ * @return	NONE
+ */
+void RCC_Disable_SPIx(eSPIx_t SPIx){
+	switch(SPIx){
+		case RCC_SPI1:	RCC->APB2ENR &= ~(1U << 12);
+						break;
+		case RCC_SPI2:	RCC->APB1LENR &= ~(1U << 14);
+						break;
+		case RCC_SPI3:	RCC->APB1LENR &= ~(1U << 15);
+						break;
+		case RCC_SPI4:	RCC->APB2ENR &= ~(1U << 13);
+						break;
+		case RCC_SPI5:	RCC->APB2ENR &= ~(1U << 20);
+						break;
+		case RCC_SPI6:	RCC->APB4ENR &= ~(1U << 5);
+						break;
 	}
 }
