@@ -39,7 +39,8 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 
 ### **USART/UART**
 - Configuration of USART/UART
-- USART Write/Block write
+- USART Write/Block Write
+- USART Read/Block Read
 
 ### **ADC**
 -  ADC init/Configure/Start/Read
@@ -95,6 +96,7 @@ Drivers/
 |   ├── NVIC.h
 |   ├── SPI.h
 |
+├── Templates   (Examples on how to use)
 └── README.md
 ```
 
