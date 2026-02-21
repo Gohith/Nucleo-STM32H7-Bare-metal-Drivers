@@ -4,7 +4,7 @@ A lightweight collection of **bare‑metal, register‑level drivers** for STM32
 This project avoids HAL/LL entirely and focuses on clarity, performance, and learning the hardware at its lowest level.
 The drivers can be included in the project application.
 
-> **Project Status:** Work in progress — currently includes ADC, GPIO, PWR, RCC, RTC, SYSTICK, TIM, USART, IWDG, NVIC , SPI drivers.  
+> **Project Status:** Work in progress — currently includes ADC, GPIO, PWR, RCC, RTC, SYSTICK, TIM, USART, IWDG, NVIC , SPI , I2C drivers.  
 > More peripheral drivers will be added as development continues.
 
 ---
@@ -61,9 +61,13 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 
 ### **SPI**
 - INIT/Tx/Rx SPI peripheral
-> - **GPIO peripherals should be configured before initializing SPI |** 
-> - **SPI(1, 2, 3) can also be used for I2S(1, 2, 3) left for future scope.**
+> - **GPIO, RCC peripherals should be configured before initializing SPI |** 
+> - **SPI(1, 2, 3) can also be used for I2S(1, 2, 3), I2S left for future scope.**
   
+### **I2C**
+-   INIT/WRITE/READ
+> - **GPIO, RCC peripherals should be configured before initializing I2C |** 
+
 ---
 
 ## Project Structure
@@ -82,6 +86,7 @@ Drivers/
 |   ├── IWDG.c
 |   ├── NVIC.c
 |   ├── SPI.c
+|   ├── I2C.c
 │
 ├── inc/
 │   ├── GPIO.h
@@ -95,6 +100,7 @@ Drivers/
 |   ├── IWDG.h
 |   ├── NVIC.h
 |   ├── SPI.h
+|   ├── I2C.h
 |
 ├── Templates   (Examples on how to use)
 └── README.md
@@ -114,7 +120,6 @@ Drivers/
 ## Work in Progress
 
 Planned upcoming drivers: 
-- I2C
 - CAN/CANFD
 - DMA    
 - Extended Interrupts (EXTI)
