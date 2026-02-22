@@ -33,8 +33,7 @@ typedef struct{
 	uint8_t AddressSize_10_bit:1;
 	uint8_t OwnAddress;
 	uint8_t EnableAnalogFilter_bit:1;
-	uint8_t EnableDigitalFilter_bit:1;
-	uint8_t ConfigureDigitalFilter:1;
+	uint8_t ConfigureDigitalFilter;
 	uint32_t Timing;
 }I2C_config_t;
 

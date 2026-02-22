@@ -61,12 +61,12 @@ The goal is to build a complete set of reusable STM32H7 drivers while keeping th
 
 ### **SPI**
 - INIT/Tx/Rx SPI peripheral
-> - **GPIO, RCC peripherals should be configured before initializing SPI |** 
+> - **GPIO, RCC peripherals should be configured before initializing SPI** 
 > - **SPI(1, 2, 3) can also be used for I2S(1, 2, 3), I2S left for future scope.**
   
 ### **I2C**
 -   INIT/WRITE/READ
-> - **GPIO, RCC peripherals should be configured before initializing I2C |** 
+> - **GPIO, RCC peripherals should be configured before initializing I2C** 
 
 ---
 
